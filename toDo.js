@@ -26,10 +26,8 @@ const newDay=(newDay,school,work,home,completed)=>{
         home:home,
         completed:completed
     }
-    console.log(myList);
-        
+    console.log(myList);     
 }
-
  newDay('day4','work on project','give report','watch movie','true')
 
 
@@ -39,11 +37,9 @@ const newDay=(newDay,school,work,home,completed)=>{
 
 function accessSpecificDay (newDay){
        for (const entry of Object.entries(newDay)){
-       
 console.log(`${entry[0]} => ${entry[1]}`)
      }
  }
-
 accessSpecificDay( myList.day3)
 
 
