@@ -54,3 +54,27 @@ function completedDays(markeDayComplete){
 }
 }
 completedDays('Day2');
+
+
+
+
+// function to remove a task 
+function deleteDay(dayNumber,tasks){
+    if(myList.hasOwnProperty('day' + dayNumber) && myList['day' + dayNumber].hasOwnProperty(tasks)){
+        delete myList['day'+ dayNumber][tasks]
+        console.log(`Task ${tasks} is deleted from day ${dayNumber}`)
+
+    }
+    else {
+        console.log(`Task ${dayNumber} doesn't exist in Day${dayNumber}`)
+    }
+
+}
+
+deleteDay(1 ,'school');
+
+
+
+
+
+
