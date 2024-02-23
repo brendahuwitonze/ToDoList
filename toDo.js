@@ -31,13 +31,11 @@ const newDay=(newDay,school,work,home,completed)=>{
  newDay('day4','work on project','give report','watch movie','true')
 
 
-
-
 // Function to display a task by category
 
 function accessSpecificDay (newDay){
-       for (const entry of Object.entries(newDay)){
-console.log(`${entry[0]} => ${entry[1]}`)
+for(let [key,value]of Object.entries(newDay)){
+console.log(key + ':' + value)
      }
  }
 accessSpecificDay( myList.day3)
@@ -54,8 +52,6 @@ function completedDays(markeDayComplete){
 }
 }
 completedDays('Day2');
-
-
 
 
 // function to remove a task 
