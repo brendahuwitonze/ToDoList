@@ -1,0 +1,58 @@
+// Define an object called taskScheduler to store tasks
+const taskScheduler = {
+    task1: {
+        title: `Class`,
+        Description: `Complete the project`,
+        DueDate: new Date(2023, 5, 7),
+    },
+    task2: {
+        title: `Reading`,
+        Description: `Read Chapter 8 of Nodejs`,
+        DueDate: new Date(2023, 5, 19),
+    },
+};
+
+// Define a function called addTask that takes a task object as a parameter
+function addTask(task) {
+    // Get the keys of the taskScheduler object
+    let keys = Object.keys(taskScheduler);
+
+    // Find the next available ID by iterating over the keys of the taskScheduler object
+    let nextId = 1;
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        let id = parseInt(key.substring(4));
+        if (id >= nextId) {
+            nextId = id + 1;
+        }
+    }
+
+    // Add the task object to the taskScheduler object with the key "task" + nextId
+    task.id = nextId;
+    taskScheduler[`task${nextId}`] = task;
+
+    // // Return the updated taskScheduler object
+    return taskScheduler;
+}
+// Call the addTask function with the task1 object as a parameter
+(addTask(taskScheduler.task1));
+
+// Define a function called removeTask that takes a taskId as a parameter
+function removeTask(taskId) {
+    // Delete the task object from the taskScheduler object using the key "task" + taskId
+    delete taskScheduler[`task${taskId}`];
+
+    // Return the updated taskScheduler object
+    return taskScheduler;
+}
+
+// Call the removeTask function with the taskId 0 as a parameter
+let result = removeTask(0);
+
+// If the result of the removeTask function is not truthy (i.e., the task was not found), log "No such Task"
+if (!result) {
+    console.log("No such Task");
+} else {
+    // If the task was found and removed, log the updated taskScheduler object
+    console.log(result);
+}
