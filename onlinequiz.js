@@ -33,3 +33,14 @@ function displayAnswerOptions(options) {
     });
 }
 
+// Function to check the user's answer
+function checkAnswer(userAnswer, correctAnswer) {
+    if (userAnswer === correctAnswer) {
+        console.log('Correct!');
+        return true;
+    } else {
+        console.log('Incorrect. The correct answer is:');
+        console.log(quiz[Object.keys(quiz)[0]].options[quiz[Object.keys(quiz)[0]].correctAnswer]);
+        return false;
+    }
+}
